@@ -1,0 +1,9 @@
+groups:
+  - name: node_disk_i_o_read_write_per_second
+    rules:
+      - alert: node_disk_i_o_read_write_per_second_alert
+        expr: node_disk_i_o_read_write_per_second_rule > 10 * 1024 * 1023 # threshold =10Mb
+        for: 1m
+        annotations:
+          summary: "disk i/o in {{ $labels.instance }}"
+          description: "disk i/o usage is {{ $value }}"

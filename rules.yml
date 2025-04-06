@@ -1,0 +1,9 @@
+
+groups:
+  - name: node_disk_i_o_read_write_per_second
+    rules:
+      - record: node_disk_i_o_read_write_per_second_rule
+        expr: rate(node_disk_read_bytes_total[1m]) + rate(node_disk_write_bytes_total[1m])
+        labels:
+          node1: diskI/O
+
